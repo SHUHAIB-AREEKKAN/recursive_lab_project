@@ -18,6 +18,20 @@ function frequency(datain)
 	return freq;
 }; //end of function
 
+
+function sort_frequency(freq)
+     {
+        var tuples = [];
+        for (var a in freq)
+            tuples.push([freq[a],a]);
+        tuples.sort();
+        return tuples;
+      }
+
+
+
+
 var freq_object=frequency("aaabccdeeeeeffg");
 console.log("The Frequency table");
-console.log(freq_object); //the feeq of and words javascript object	
+console.log(freq_object); //the feeq of and words javascript object
+console.log(sort_frequency(freq_object)); //sorted freq
