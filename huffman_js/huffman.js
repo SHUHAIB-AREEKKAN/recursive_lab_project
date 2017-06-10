@@ -1,3 +1,5 @@
+//Huffman simple Implementation
+
 
 var codes={}
 
@@ -25,17 +27,15 @@ function frequency(datain)
 
 function sortFreq(freq)
 {
-  var packed_array=[];
+	var packed_array=[];
 
-  for (var key in freq)
-     packed_array.push([freq[key],key]);// [(key of freq,freq[key]=value)]
+	for (var key in freq)
+		packed_array.push([freq[key],key]);// [(key of freq,freq[key]=value)]
 
-  //packed_array.sort(function(a,b){a[1]-b[1]}); //sort ascending order with respect to second elemnt thats a[1] ,b[1]
+	packed_array.sort()
+  	//console.log(packed_array);
 
-  packed_array.sort()
-  //console.log(packed_array);
-
-  return packed_array;
+  	return packed_array;
 }; // end of function
 
 function buildTree(tuples)
@@ -118,8 +118,8 @@ function Decode(tree,str)
 
 
 var freq_object=frequency("aaabccdeeeeeffg");
-//console.log("The Frequency table");
-//console.log(freq_object); //the feeq of and words javascript object
+console.log("The Frequency table");
+console.log(freq_object); //the feeq of and words javascript object
 ses=sortFreq(freq_object);
 //console.log(ses);
 ses2=buildTree(ses)
@@ -127,6 +127,7 @@ ses3=trimTree(ses2)
 assignCode(ses3)
 console.log(codes)
 encoded_data=Encode("aaabccdeeeeeffg")
+console.log("Encoded Data")
 console.log(encoded_data)
-console.log('Decoded code')
+console.log("Decoded code")
 console.log(Decode(ses3,encoded_data))
