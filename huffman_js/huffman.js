@@ -94,6 +94,24 @@ function Encode(datain)
 
 }
 
+function Decode(tree,str)
+{
+	var tmp="";
+	var p=tree;
+	for(var i=0;i<str.length;i++)
+	{
+		if (str[i] == '0')
+			p=p[0];
+		else
+			p=p[1];
+		if (typeof p === 'string')
+			{	tmp+=p;
+				p=tree;
+			}
+	}
+	return tmp;
+}
+
 
 
 
@@ -110,4 +128,5 @@ assignCode(ses3)
 console.log(codes)
 encoded_data=Encode("aaabccdeeeeeffg")
 console.log(encoded_data)
-
+console.log('Decoded code')
+console.log(Decode(ses3,encoded_data))
